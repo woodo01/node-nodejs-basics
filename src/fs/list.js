@@ -1,5 +1,13 @@
+import fs from "fs";
+import path from "node:path";
+
 const list = async () => {
-    // Write your code here 
+    const folderPath = path.join(import.meta.dirname + "/files");
+    try {
+        fs.readdirSync(folderPath).forEach((file) => console.log(file));
+    } catch (err) {
+        throw Error("FS operation failed");
+    }
 };
 
 await list();
